@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kanzlei Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Kanzlei Portal</h1>
+      <p class="muted">Registrierung nur mit Discord-Code. Danach Login mit IC-ID + Passwort.</p>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="register">Registrieren</button>
+        <button class="tab" data-tab="login">Login</button>
+        <button class="tab" data-tab="dashboard">Dashboard</button>
+      </div>
+
+      <!-- REGISTER -->
+      <section id="register" class="pane active">
+        <label>Discord Code</label>
+        <input id="reg_code" placeholder="XXXX-XXXX-XXXX" autocomplete="off" />
+
+        <div class="grid">
+          <div>
+            <label>IC-ID (Login)</label>
+            <input id="reg_ic_id" placeholder="z.B. ammo123" autocomplete="username" />
+          </div>
+          <div>
+            <label>IC-Name</label>
+            <input id="reg_ic_name" placeholder="Vorname Nachname" autocomplete="name" />
+          </div>
+        </div>
+
+        <label>Passwort</label>
+        <input id="reg_pw" type="password" placeholder="min. 8 Zeichen" autocomplete="new-password" />
+
+        <button id="btn_register" class="primary">Account erstellen</button>
+      </section>
+
+      <!-- LOGIN -->
+      <section id="login" class="pane">
+        <label>IC-ID</label>
+        <input id="login_ic_id" placeholder="deine IC-ID" autocomplete="username" />
+
+        <label>Passwort</label>
+        <input id="login_pw" type="password" placeholder="Passwort" autocomplete="current-password" />
+
+        <button id="btn_login" class="primary">Einloggen</button>
+      </section>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="pane">
+        <div class="row">
+          <div>
+            <div class="muted">Eingeloggt als</div>
+            <div id="dash_user" class="mono">—</div>
+          </div>
+          <button id="btn_logout" class="ghost">Logout</button>
+        </div>
+
+        <h3>Profil</h3>
+        <pre id="dash_profile">—</pre>
+      </section>
+
+      <div id="msg" class="msg"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
